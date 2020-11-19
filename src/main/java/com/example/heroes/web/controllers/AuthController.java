@@ -1,5 +1,6 @@
 package com.example.heroes.web.controllers;
 
+import com.example.heroes.services.models.auth.LoginUserServiceModel;
 import com.example.heroes.services.models.auth.RegisterUserServiceModel;
 import com.example.heroes.services.services.AuthService;
 import com.example.heroes.web.models.RegisterUserModel;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/users")
@@ -36,7 +39,20 @@ public class AuthController {
     public String register(@ModelAttribute RegisterUserModel model) {
         RegisterUserServiceModel serviceModel = modelMapper.map(model, RegisterUserServiceModel.class);
         authService.register(serviceModel);
-        return "/";
+        return "redirect:/";
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute RegisterUserModel model, HttpSession session) {
+        RegisterUserServiceModel serviceModel = modelMapper.map(model, RegisterUserServiceModel.class);
+        try {
+            LoginUserServiceModel loginUserServiceModel = authService.login(serviceModel);
+            session.setAttribute("user", loginUserServiceModel);
+            return "redirect:/";
+        } catch (Exception ex) {
+            return "redirect:/users/login";
+        }
+
     }
 
 }

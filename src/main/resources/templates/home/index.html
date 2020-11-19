@@ -7,26 +7,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar bg-dark navbar-expand-lg navbar-background bg-dark ">
-        <a class="navbar-brand text-white h4" href="/static">Heroes</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-            <ul class="navbar-nav row">
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active h5" href="/static">Home</a>
-                </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active h5" href="/users/login">Login</a>
-                </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active h5" href="/users/register">Register</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <th:block th:include="~{_shared/header}"></th:block>
 </header>
 <main>
     <div class="container">
