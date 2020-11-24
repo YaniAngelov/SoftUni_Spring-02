@@ -1,9 +1,9 @@
-package com.example.heroes.web.controllers;
+package com.example.heroes.web.view.controllers;
 
 import com.example.heroes.services.models.auth.LoginUserServiceModel;
 import com.example.heroes.services.models.auth.RegisterUserServiceModel;
 import com.example.heroes.services.services.AuthService;
-import com.example.heroes.web.models.RegisterUserModel;
+import com.example.heroes.web.view.models.RegisterUserModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +48,7 @@ public class AuthController {
         try {
             LoginUserServiceModel loginUserServiceModel = authService.login(serviceModel);
             session.setAttribute("user", loginUserServiceModel);
-            return "redirect:/";
+            return "redirect:/home";
         } catch (Exception ex) {
             return "redirect:/users/login";
         }

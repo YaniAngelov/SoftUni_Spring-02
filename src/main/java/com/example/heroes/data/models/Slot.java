@@ -5,5 +5,5 @@ public enum Slot{
     HELMET,
     PAULDRON,
     PADS,
-    GAUNTLETS,
+    GAUNTLETS
 }

@@ -35,9 +35,9 @@ public class Hero extends BaseEntity {
     @Column
     private int defence;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
-            name = "heroes_items",
+            name = "hero_items",
             joinColumns = { @JoinColumn(name = "hero_id")},
             inverseJoinColumns = { @JoinColumn(name = "item_id")}
     )

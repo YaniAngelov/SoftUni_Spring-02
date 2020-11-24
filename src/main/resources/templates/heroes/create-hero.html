@@ -8,35 +8,13 @@
 <body>
 <header>
     <header>
-        <nav class="navbar bg-dark navbar-expand-lg navbar-background bg-dark ">
-            <a class="navbar-brand text-white h4" href="/home">Heroes</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                <ul class="navbar-nav row">
-                    <li class="nav-item mr-2">
-                        <a class="nav-link text-white active h5" href="/heroes/create">Create hero</a>
-                    </li>
-                    
-                    <li class="nav-item mr-2">
-                        <a class="nav-link text-white active h5" href="/items/create">Create Item</a>
-                    </li>
-                    
-                    
-                    <li class="nav-item mr-2">
-                        <a class="nav-link text-white active h5" href="/logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <th:block th:include="~{_shared/header}"></th:block>
     </header>
 </header>
 <main>
     <div class="container">
         <h1 class="text-center">Create hero</h1>
-        <form class="mx-auto w-100 bg-blur" action="/heroes/create" method="post">
+        <form class="mx-auto w-100 bg-blur" th:action="@{/heroes/create}" method="post">
             <div class="form-group">
                 <div class="label-holder textCol d-flex justify-content-center">
                     <label for="name" class="h4 mb-2 text-white">Name</label>
@@ -62,7 +40,7 @@
                         <div class="col col-md-6 ml-lg-5">
                             <h2 class="text-white">male</h2>
                             <label for="gender">
-                                <input type="radio" id="gender" class="ml-lg-5" value="male" name="gender">
+                                <input type="radio" id="gender" class="ml-lg-5" value="MALE" name="gender">
                             </label>
                         </div>
                     </div>
@@ -70,7 +48,7 @@
                         <div class="col col-md-6 ml-lg-5">
                             <h2 class="text-white">female</h2>
                             <label for="gender">
-                                <input type="radio" id="gender" class="ml-lg-5" value="female" name="gender">
+                                <input type="radio" id="gender" class="ml-lg-5" value="FEMALE" name="gender">
                             </label>
                         </div>
                     </div>
