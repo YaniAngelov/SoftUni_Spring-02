@@ -1,6 +1,5 @@
 package com.example.heroes.web.view.controllers;
 
-import com.example.heroes.data.models.Gender;
 import com.example.heroes.errors.HeroNotFoundException;
 import com.example.heroes.services.models.auth.LoginUserServiceModel;
 import com.example.heroes.services.models.heroes.HeroCreateServiceModel;
@@ -12,12 +11,10 @@ import com.example.heroes.web.view.models.HeroCreateModel;
 import com.example.heroes.web.view.models.HeroDetailsViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
 
 @Controller
 @RequestMapping("/heroes")
@@ -68,12 +65,12 @@ public class HeroesController extends BaseController{
         }
     }
 
-//    @ExceptionHandler(HeroNotFoundException.class)
-//    public ModelAndView handleException(HeroNotFoundException exception) {
-//        ModelAndView modelAndView = new ModelAndView("custom-error");
-//        modelAndView.addObject("message", exception.getMessage());
-//
-//        return modelAndView;
-//    }
+    @ExceptionHandler(HeroNotFoundException.class)
+    public ModelAndView handleException(HeroNotFoundException exception) {
+        ModelAndView modelAndView = new ModelAndView("custom-error");
+        modelAndView.addObject("message", exception.getMessage());
+
+        return modelAndView;
+    }
 
 }

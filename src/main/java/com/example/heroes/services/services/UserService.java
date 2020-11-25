@@ -1,9 +1,9 @@
 package com.example.heroes.services.services;
 
-import com.example.heroes.services.models.heroes.HeroCreateServiceModel;
+import com.example.heroes.data.models.User;
 
 public interface UserService {
 
-//    void createHeroForUser(String username, HeroCreateServiceModel hero) throws Exception;
+    User getUsername(String username);
 
 }
