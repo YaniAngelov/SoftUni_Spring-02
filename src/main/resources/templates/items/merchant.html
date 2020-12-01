@@ -4,37 +4,12 @@
         xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:include="~{_shared/head}"></th:block>
+    <link rel="stylesheet" href="/css/merchant.css">
 </head>
 <body>
 <header>
     <header>
-        <nav class="navbar bg-dark navbar-expand-lg navbar-background bg-dark ">
-            <a class="navbar-brand text-white h4" href="/home">Heroes</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                <ul class="navbar-nav row">
-                    
-                    <li class="nav-item mr-2">
-                        <a class="nav-link text-white active h5" href="/items/merchant">Merchant</a>
-                    </li>
-                    <li class="nav-item mr-2">
-                        <a class="nav-link text-white active h5" href="/items/create">Create Item</a>
-                    </li>
-                    <li class="nav-item mr-2">
-                        <a class="nav-link text-white active h5" href="/heroes/details/SoulTaker">Hero</a>
-                    </li>
-                    <li class="nav-item mr-2">
-                        <a class="nav-link text-white active h5" href="/users/profile">Profile</a>
-                    </li>
-                    <li class="nav-item mr-2">
-                        <a class="nav-link text-white active h5" href="/logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <th:block th:include="~{_shared/header}"></th:block>
     </header>
 </header>
 <main class="container">
@@ -52,81 +27,18 @@
             <th scope="col"></th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>Relentless</td>
-            <td>PADS</td>
-            <td>25</td>
-            <td>22</td>
-            <td>0</td>
-            <td>60</td>
-            <td>
-                <form action="/items/merchant/Relentless" method="post">
-                <button class="btn btn-info">Buy</button>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <td>DragonScale</td>
-            <td>HELMET</td>
-            <td>15</td>
-            <td>10</td>
-            <td>0</td>
-            <td>40</td>
-            <td>
-                <form action="/items/merchant/DragonScale" method="post">
-                <button class="btn btn-info">Buy</button>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <td>Wrathfull</td>
-            <td>PAULDRON</td>
-            <td>45</td>
-            <td>30</td>
-            <td>0</td>
-            <td>80</td>
-            <td>
-                <form action="/items/merchant/Wrathfull" method="post">
-                <button class="btn btn-info">Buy</button>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <td>Furious</td>
-            <td>GAUNTLETS</td>
-            <td>15</td>
-            <td>20</td>
-            <td>0</td>
-            <td>30</td>
-            <td>
-                <form action="/items/merchant/Furious" method="post">
-                <button class="btn btn-info">Buy</button>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <td>Glorenzelg</td>
-            <td>WEAPON</td>
-            <td>40</td>
-            <td>60</td>
-            <td>80</td>
-            <td>0</td>
-            <td>
-                <form action="/items/merchant/Glorenzelg" method="post">
-                <button class="btn btn-info">Buy</button>
-                </form>
-            </td>
-        </tr>
+        <tbody id="items-table">
+
         </tbody>
     </table>
 </main>
-    <footer class="footer bg-dark  py-2">
-        <div class="container-fluid text-center">
-            <div class="footer-background h5 text-white">
-                &#169; CopyRight Victorious Arena. All rights reserved.
-            </div>
-        </div>
-    </footer>
+<th:block th:include="~{_shared/footer}"></th:block>
+<th:block th:include="~{_shared/loader}"></th:block>
+
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script src="/js/items.js"></script>
 </body>
 </html>

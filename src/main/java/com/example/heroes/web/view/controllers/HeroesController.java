@@ -7,6 +7,7 @@ import com.example.heroes.services.models.heroes.HeroDetailsServiceModel;
 import com.example.heroes.services.services.AuthenticatedUserService;
 import com.example.heroes.services.services.HeroesService;
 import com.example.heroes.services.services.UserService;
+import com.example.heroes.web.base.BaseController;
 import com.example.heroes.web.view.models.HeroCreateModel;
 import com.example.heroes.web.view.models.HeroDetailsViewModel;
 import org.modelmapper.ModelMapper;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/heroes")
-public class HeroesController extends BaseController{
+public class HeroesController extends BaseController {
 
     private final HeroesService heroesService;
     private final UserService userService;
@@ -52,7 +53,6 @@ public class HeroesController extends BaseController{
     public String createHero(@ModelAttribute HeroCreateModel hero, HttpSession session) {
 
         String username = getUsername(session);
-        System.out.println(hero);
 
         HeroCreateServiceModel serviceModel = modelMapper.map(hero, HeroCreateServiceModel.class);
         try {

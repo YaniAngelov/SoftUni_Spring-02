@@ -1,4 +1,4 @@
-package com.example.heroes.web.view.controllers;
+package com.example.heroes.web.base;
 
 import com.example.heroes.services.models.auth.LoginUserServiceModel;
 import org.springframework.stereotype.Controller;
