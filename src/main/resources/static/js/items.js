@@ -24,7 +24,7 @@ const toString = ({id, name, slot, stamina, strength, attack, defence, owned}) =
     columns += owned
         ? '<td></td>'
         : `<td>                
-        <form class="buy-item-form" action="/api/items/${id}" method="post">
+        <form class="buy-item-form" action="/api/items/add-to-user/${id}" method="post">
             <button class="btn btn-info">Buy</button>
         </form>
         </td>`

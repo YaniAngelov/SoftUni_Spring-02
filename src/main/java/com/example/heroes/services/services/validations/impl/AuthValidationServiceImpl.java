@@ -1,8 +1,8 @@
-package com.example.heroes.services.services.impl;
+package com.example.heroes.services.services.validations.impl;
 
 import com.example.heroes.data.repositories.UserRepository;
 import com.example.heroes.services.models.auth.RegisterUserServiceModel;
-import com.example.heroes.services.services.AuthValidationService;
+import com.example.heroes.services.services.validations.AuthValidationService;
 import org.springframework.stereotype.Service;
 
 @Service

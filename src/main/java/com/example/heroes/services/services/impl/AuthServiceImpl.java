@@ -5,7 +5,7 @@ import com.example.heroes.data.repositories.UserRepository;
 import com.example.heroes.services.models.auth.LoginUserServiceModel;
 import com.example.heroes.services.models.auth.RegisterUserServiceModel;
 import com.example.heroes.services.services.AuthService;
-import com.example.heroes.services.services.AuthValidationService;
+import com.example.heroes.services.services.validations.AuthValidationService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

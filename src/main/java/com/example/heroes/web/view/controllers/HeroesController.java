@@ -58,7 +58,7 @@ public class HeroesController extends BaseController {
         try {
             heroesService.createHeroForUser(username, serviceModel);
             LoginUserServiceModel loginUserServiceModel = new LoginUserServiceModel(username, hero.getName());
-            session.setAttribute("user", loginUserServiceModel);
+
             return "redirect:/heroes/details/" + hero.getName();
         } catch (Exception ex) {
             return "redirect:/heroes/create";

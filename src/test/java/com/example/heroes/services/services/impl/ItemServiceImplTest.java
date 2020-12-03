@@ -4,8 +4,10 @@ import com.example.heroes.data.models.Hero;
 import com.example.heroes.data.models.Item;
 import com.example.heroes.data.models.Slot;
 import com.example.heroes.data.models.User;
+import com.example.heroes.data.repositories.HeroesRepository;
 import com.example.heroes.data.repositories.ItemsRepository;
 import com.example.heroes.services.models.items.ItemServiceModel;
+import com.example.heroes.services.services.validations.ItemsValidationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -23,7 +25,8 @@ class ItemServiceImplTest {
 
     ItemServiceImpl service;
     ItemsRepository itemsRepository;
-
+    ItemsValidationService itemsValidationService;
+    HeroesRepository heroesRepository;
 
 
     @BeforeEach
@@ -33,9 +36,12 @@ class ItemServiceImplTest {
 
         ModelMapper modelMapper = new ModelMapper();
         itemsRepository = Mockito.mock(ItemsRepository.class);
+        itemsValidationService = Mockito.mock(ItemsValidationService.class);
+        heroesRepository =  Mockito.mock(HeroesRepository.class);
         Mockito.when(itemsRepository.findAll())
                 .thenReturn(items);
-        service = new ItemServiceImpl(itemsRepository, modelMapper);
+
+        service = new ItemServiceImpl(itemsRepository, modelMapper, itemsValidationService, heroesRepository);
     }
 
     @Test

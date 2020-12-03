@@ -34,7 +34,7 @@ public class Item extends BaseEntity {
     @Column
     private int defence;
 
-    @ManyToMany(mappedBy = "items")
+    @ManyToMany(mappedBy = "items", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Hero> heroes;
 
 }

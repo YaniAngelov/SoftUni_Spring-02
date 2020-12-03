@@ -1,6 +1,13 @@
 <th:block>
     <nav class="navbar bg-dark navbar-expand-lg navbar-background bg-dark ">
-        <a class="navbar-brand text-white h4" href="/static">Heroes</a>
+
+        <th:block th:if="${session.user == null || session.user.username == null}">
+            <a class="navbar-brand text-white h4" th:href="@{/}">Heroes</a>
+        </th:block>
+        <th:block th:unless="${session.user == null || session.user.username == null}">
+            <a class="navbar-brand text-white h4" th:href="@{/home}">Heroes</a>
+        </th:block>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,7 +17,7 @@
 
                 <th:block th:if="${session.user == null || session.user.username == null}">
                     <li class="nav-item col-md-4">
-                        <a class="nav-link text-white active h5" href="/static">Home</a>
+                        <a class="nav-link text-white active h5" href="/">Home</a>
                     </li>
                     <li class="nav-item col-md-4">
                         <a class="nav-link text-white active h5" href="/users/login">Login</a>
@@ -30,7 +37,7 @@
                             <a class="nav-link text-white active h5" href="/items/create">Create Item</a>
                         </li>
                         <li class="nav-item mr-2">
-                            <a class="nav-link text-white active h5" href="/logout">Logout</a>
+                            <a class="nav-link text-white active h5" href="/users/logout">Logout</a>
                         </li>
                     </th:block>
 
@@ -46,10 +53,11 @@
                                th:href="@{'/heroes/details/' + ${session.user.heroName}}">Hero</a>
                         </li>
                         <li class="nav-item mr-2">
-                            <a class="nav-link text-white active h5" href="/users/profile">Profile</a>
+                            <a class="nav-link text-white active h5"
+                               th:href="@{'/users/profile/' + ${session.user.heroName}}">Profile</a>
                         </li>
                         <li class="nav-item mr-2">
-                            <a class="nav-link text-white active h5" href="/logout">Logout</a>
+                            <a class="nav-link text-white active h5" href="/users/logout">Logout</a>
                         </li>
                     </th:block>
 

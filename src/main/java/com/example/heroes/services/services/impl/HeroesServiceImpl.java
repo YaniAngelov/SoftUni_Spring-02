@@ -7,6 +7,7 @@ import com.example.heroes.services.factories.HeroesFactory;
 import com.example.heroes.services.models.heroes.HeroCreateServiceModel;
 import com.example.heroes.services.models.heroes.HeroDetailsServiceModel;
 import com.example.heroes.services.models.heroes.HeroItemServiceModel;
+import com.example.heroes.services.models.heroes.HeroProfileServiceModel;
 import com.example.heroes.services.services.HeroesService;
 import com.example.heroes.services.services.UserService;
 import org.modelmapper.ModelMapper;
@@ -51,6 +52,17 @@ public class HeroesServiceImpl implements HeroesService {
         serviceModel.setHelmet(getItemBySlot(hero.getItems(), Slot.HELMET));
         serviceModel.setPads(getItemBySlot(hero.getItems(), Slot.PADS));
         serviceModel.setPauldrons(getItemBySlot(hero.getItems(), Slot.PAULDRON));
+
+        return serviceModel;
+    }
+
+    @Override
+    public HeroProfileServiceModel getProfileByName(String name) {
+
+        Hero hero = heroesRepository.getByNameIgnoreCase(name)
+                .orElseThrow(() -> new HeroNotFoundException("Hero with such name does not exist"));
+
+        HeroProfileServiceModel serviceModel = modelMapper.map(hero, HeroProfileServiceModel.class);
 
         return serviceModel;
     }

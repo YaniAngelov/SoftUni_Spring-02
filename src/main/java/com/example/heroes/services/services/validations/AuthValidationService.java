@@ -1,4 +1,4 @@
-package com.example.heroes.services.services;
+package com.example.heroes.services.services.validations;
 
 import com.example.heroes.services.models.auth.RegisterUserServiceModel;
 

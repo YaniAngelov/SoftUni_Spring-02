@@ -1,21 +1,14 @@
 package com.example.heroes.services.services.impl;
 
-import com.example.heroes.data.models.Gender;
-import com.example.heroes.data.models.User;
 import com.example.heroes.data.repositories.HeroesRepository;
 import com.example.heroes.data.repositories.UserRepository;
 import com.example.heroes.services.factories.HeroesFactory;
 import com.example.heroes.services.factories.impl.HeroesFactoryImpl;
-import com.example.heroes.services.models.heroes.HeroCreateServiceModel;
 import com.example.heroes.services.services.UserService;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class HeroesServiceImplTest {
 
@@ -34,7 +27,7 @@ public class HeroesServiceImplTest {
         heroesFactory = new HeroesFactoryImpl();
         userRepository = Mockito.mock(UserRepository.class);
         ModelMapper modelMapper = new ModelMapper();
-        userService = new UserServiceImpl(userRepository);
+        userService = new UserServiceImpl(userRepository, modelMapper);
         service = new HeroesServiceImpl(heroesRepository, modelMapper, heroesFactory, userService);
     }
 

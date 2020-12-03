@@ -52,7 +52,12 @@ public class AuthController {
         } catch (Exception ex) {
             return "redirect:/users/login";
         }
+    }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
     }
 
 }
